@@ -1,0 +1,360 @@
+Decompilation results for chal.pyc
+
+Function <module>()
+IP   	INSN                	PARAM 	COMMENTS                      
+636  	LOAD_CONST          	0     	-1                            
+639  	LOAD_CONST          	1     	None                          
+642  	IMPORT_NAME         	0     	__import__(sys, None, -1)     
+83   	STORE_NAME          	0     	sys = __import__(sys, None, -1)
+86   	LOAD_CONST          	2     	<code object str2hex at 00000000037191B0, file "enc.py", line 3>
+89   	MAKE_FUNCTION       	0     	                              
+92   	STORE_NAME          	1     	str2hex = function <code object str2hex at 00000000037191B0, file "enc.py", line 3>	default_args:[]
+95   	LOAD_CONST          	3     	<code object hex2str at 0000000003719130, file "enc.py", line 9>
+300  	MAKE_FUNCTION       	0     	                              
+303  	STORE_NAME          	2     	hex2str = function <code object hex2str at 0000000003719130, file "enc.py", line 9>	default_args:[]
+306  	LOAD_CONST          	4     	<code object p_s at 0000000003719230, file "enc.py", line 14>
+309  	MAKE_FUNCTION       	0     	                              
+101  	STORE_NAME          	3     	p_s = function <code object p_s at 0000000003719230, file "enc.py", line 14>	default_args:[]
+252  	LOAD_CONST          	5     	<code object p_f at 00000000037192B0, file "enc.py", line 17>
+255  	MAKE_FUNCTION       	0     	                              
+258  	STORE_NAME          	4     	p_f = function <code object p_f at 00000000037192B0, file "enc.py", line 17>	default_args:[]
+439  	LOAD_CONST          	6     	<code object count at 0000000003719330, file "enc.py", line 20>
+442  	MAKE_FUNCTION       	0     	                              
+445  	STORE_NAME          	5     	count = function <code object count at 0000000003719330, file "enc.py", line 20>	default_args:[]
+448  	LOAD_NAME           	0     	sys                           
+514  	LOAD_ATTR           	6     	                              
+517  	LOAD_ATTR           	7     	                              
+520  	LOAD_NAME           	2     	hex2str                       
+523  	LOAD_CONST          	7     	102                           
+526  	LOAD_CONST          	8     	108                           
+427  	LOAD_CONST          	9     	97                            
+430  	LOAD_CONST          	10    	103                           
+433  	LOAD_CONST          	11    	58                            
+361  	BUILD_LIST          	5     	                              
+364  	CALL_FUNCTION       	1     	hex2str([102, 108, 97, 103, 58])
+76   	CALL_FUNCTION       	1     	sys.stdout.write(hex2str([102, 108, 97, 103, 58]))
+264  	POP_TOP             	      	                              
+265  	LOAD_NAME           	0     	sys                           
+268  	LOAD_ATTR           	8     	                              
+271  	LOAD_ATTR           	9     	                              
+274  	LOAD_CONST          	12    	38                            
+346  	CALL_FUNCTION       	1     	sys.stdin.read(38)            
+349  	STORE_NAME          	10    	flag = sys.stdin.read(38)     
+352  	LOAD_NAME           	5     	count                         
+355  	LOAD_NAME           	1     	str2hex                       
+648  	LOAD_NAME           	10    	flag                          
+651  	CALL_FUNCTION       	1     	str2hex(flag)                 
+654  	CALL_FUNCTION       	1     	count(str2hex(flag))          
+657  	POP_TOP             	      	                              
+340  	LOAD_CONST          	1     	None                          
+82   	RETURN_VALUE        	      	return None                   
+Function <module>() End
+
+
+Function str2hex(string)
+IP   	INSN                	PARAM 	COMMENTS                      
+35   	BUILD_LIST          	0     	                              
+249  	STORE_FAST          	1     	ret = []                      
+252  	SETUP_LOOP          	25    	                              
+261  	LOAD_FAST           	0     	string                        
+264  	GET_ITER            	      	                              
+268  	FOR_ITER            	21    	                              
+225  	STORE_FAST          	2     	char = iter(string).next()    
+228  	LOAD_FAST           	1     	ret                           
+58   	LOAD_ATTR           	0     	                              
+68   	LOAD_GLOBAL         	1     	ord                           
+71   	LOAD_FAST           	2     	char                          
+74   	CALL_FUNCTION       	1     	ord(char)                     
+215  	CALL_FUNCTION       	1     	ret.append(ord(char))         
+218  	POP_TOP             	      	                              
+|----------------------
+|->FOR 268 END
+211  	POP_BLOCK           	      	                              
+64   	LOAD_FAST           	1     	ret                           
+67   	RETURN_VALUE        	      	return ret                    
+Function str2hex(string) End
+
+
+Function hex2str(data)
+IP   	INSN                	PARAM 	COMMENTS                      
+144  	LOAD_CONST          	1     	''                            
+40   	LOAD_ATTR           	0     	                              
+43   	BUILD_LIST          	0     	                              
+46   	LOAD_FAST           	0     	data                          
+122  	GET_ITER            	      	                              
+126  	FOR_ITER            	24    	                              
+274  	STORE_FAST          	1     	d = iter(data).next()         
+277  	LOAD_GLOBAL         	1     	chr                           
+280  	LOAD_FAST           	1     	d                             
+283  	CALL_FUNCTION       	1     	chr(d)                        
+135  	LIST_APPEND         	2     	                              
+|----------------------
+|->FOR 126 END
+270  	CALL_FUNCTION       	1     	''.join(['chr(d)'])           
+273  	RETURN_VALUE        	      	return ''.join(['chr(d)'])    
+Function hex2str(data) End
+
+
+Function p_s()
+IP   	INSN                	PARAM 	COMMENTS                      
+103  	LOAD_GLOBAL         	0     	sys                           
+106  	LOAD_ATTR           	1     	                              
+109  	LOAD_ATTR           	2     	                              
+112  	LOAD_GLOBAL         	3     	hex2str                       
+164  	LOAD_CONST          	1     	115                           
+217  	LOAD_CONST          	2     	117                           
+220  	LOAD_CONST          	3     	99                            
+223  	LOAD_CONST          	3     	99                            
+226  	LOAD_CONST          	4     	101                           
+88   	LOAD_CONST          	1     	115                           
+91   	LOAD_CONST          	1     	115                           
+94   	LOAD_CONST          	5     	33                            
+97   	BUILD_LIST          	8     	                              
+204  	CALL_FUNCTION       	1     	hex2str([115, 117, 99, 99, 101, 115, 115, 33])
+207  	CALL_FUNCTION       	1     	sys.stdout.write(hex2str([115, 117, 99, 99, 101, 115, 115, 33]))
+210  	POP_TOP             	      	                              
+211  	LOAD_CONST          	0     	None                          
+87   	RETURN_VALUE        	      	return None                   
+Function p_s() End
+
+
+Function p_f()
+IP   	INSN                	PARAM 	COMMENTS                      
+207  	LOAD_GLOBAL         	0     	sys                           
+210  	LOAD_ATTR           	1     	                              
+213  	LOAD_ATTR           	2     	                              
+216  	LOAD_GLOBAL         	3     	hex2str                       
+219  	LOAD_CONST          	1     	102                           
+225  	LOAD_CONST          	2     	97                            
+228  	LOAD_CONST          	3     	105                           
+159  	LOAD_CONST          	4     	108                           
+162  	LOAD_CONST          	5     	33                            
+165  	BUILD_LIST          	5     	                              
+67   	CALL_FUNCTION       	1     	hex2str([102, 97, 105, 108, 33])
+70   	CALL_FUNCTION       	1     	sys.stdout.write(hex2str([102, 97, 105, 108, 33]))
+73   	POP_TOP             	      	                              
+74   	LOAD_CONST          	0     	None                          
+171  	RETURN_VALUE        	      	return None                   
+Function p_f() End
+
+
+Function count(data)
+IP   	INSN                	PARAM 	COMMENTS                      
+1900 	LOAD_CONST          	1     	13433                         
+1234 	LOAD_CONST          	2     	4747                          
+1237 	LOAD_CONST          	3     	17752                         
+1240 	LOAD_CONST          	4     	33060                         
+1243 	LOAD_CONST          	5     	31051                         
+136  	LOAD_CONST          	6     	48809                         
+139  	LOAD_CONST          	7     	29988                         
+142  	LOAD_CONST          	8     	6421                          
+145  	LOAD_CONST          	9     	20021                         
+1849 	LOAD_CONST          	10    	38888                         
+1852 	LOAD_CONST          	11    	24844                         
+1855 	LOAD_CONST          	12    	20706                         
+1194 	LOAD_CONST          	13    	11713                         
+1197 	LOAD_CONST          	14    	34938                         
+1200 	LOAD_CONST          	15    	12865                         
+1203 	LOAD_CONST          	16    	6085                          
+2583 	LOAD_CONST          	17    	37391                         
+2586 	LOAD_CONST          	18    	32840                         
+2589 	LOAD_CONST          	19    	31964                         
+2592 	LOAD_CONST          	20    	27194                         
+1880 	LOAD_CONST          	21    	8701                          
+1583 	LOAD_CONST          	22    	48142                         
+1586 	LOAD_CONST          	23    	27066                         
+1589 	LOAD_CONST          	24    	28626                         
+1592 	LOAD_CONST          	25    	37431                         
+1703 	LOAD_CONST          	26    	39142                         
+1706 	LOAD_CONST          	27    	46795                         
+1709 	LOAD_CONST          	28    	21771                         
+1712 	LOAD_CONST          	29    	44280                         
+2183 	LOAD_CONST          	30    	40628                         
+2186 	LOAD_CONST          	31    	35013                         
+2189 	LOAD_CONST          	32    	18583                         
+2192 	LOAD_CONST          	33    	5418                          
+2685 	LOAD_CONST          	34    	4347                          
+2688 	LOAD_CONST          	35    	43929                         
+475  	LOAD_CONST          	36    	9934                          
+2667 	LOAD_CONST          	37    	46892                         
+2670 	LOAD_CONST          	38    	19868                         
+2673 	BUILD_LIST          	38    	                              
+2676 	STORE_FAST          	1     	a = [13433, 4747, 17752, 33060, 31051, 48809, 29988, 6421, 20021, 38888, 24844, 20706, 11713, 34938, 12865, 6085, 37391, 32840, 31964, 27194, 8701, 48142, 27066, 28626, 37431, 39142, 46795, 21771, 44280, 40628, 35013, 18583, 5418, 4347, 43929, 9934, 46892, 19868]
+2679 	LOAD_CONST          	39    	13711                         
+2361 	LOAD_CONST          	40    	7074                          
+2364 	LOAD_CONST          	41    	79833                         
+2367 	LOAD_CONST          	42    	42654                         
+2370 	LOAD_CONST          	43    	23241                         
+54   	LOAD_CONST          	44    	41412                         
+2756 	LOAD_CONST          	45    	61795                         
+2759 	LOAD_CONST          	46    	6373                          
+2762 	LOAD_CONST          	47    	19304                         
+2765 	LOAD_CONST          	48    	1363                          
+2406 	LOAD_CONST          	49    	1682                          
+1916 	LOAD_CONST          	50    	66279                         
+1919 	LOAD_CONST          	51    	76134                         
+1922 	LOAD_CONST          	52    	60748                         
+1925 	LOAD_CONST          	53    	10355                         
+1660 	LOAD_CONST          	54    	63484                         
+1663 	LOAD_CONST          	55    	30491                         
+1666 	LOAD_CONST          	56    	34005                         
+1669 	LOAD_CONST          	57    	51393                         
+1672 	LOAD_CONST          	58    	38029                         
+1931 	LOAD_CONST          	59    	7241                          
+1934 	LOAD_CONST          	60    	4998                          
+1937 	LOAD_CONST          	61    	18562                         
+798  	LOAD_CONST          	62    	16935                         
+801  	LOAD_CONST          	63    	66677                         
+804  	LOAD_CONST          	64    	51321                         
+2062 	LOAD_CONST          	65    	13771                         
+2065 	LOAD_CONST          	66    	49108                         
+2068 	LOAD_CONST          	67    	52166                         
+2071 	LOAD_CONST          	68    	8851                          
+2617 	LOAD_CONST          	69    	16900                         
+2620 	LOAD_CONST          	70    	31682                         
+2623 	LOAD_CONST          	71    	16684                         
+1339 	LOAD_CONST          	72    	12046                         
+2747 	LOAD_CONST          	73    	16764                         
+2750 	LOAD_CONST          	74    	64315                         
+186  	LOAD_CONST          	75    	76742                         
+189  	LOAD_CONST          	76    	14022                         
+1317 	BUILD_LIST          	38    	                              
+1320 	STORE_FAST          	2     	b = [13711, 7074, 79833, 42654, 23241, 41412, 61795, 6373, 19304, 1363, 1682, 66279, 76134, 60748, 10355, 63484, 30491, 34005, 51393, 38029, 7241, 4998, 18562, 16935, 66677, 51321, 13771, 49108, 52166, 8851, 16900, 31682, 16684, 12046, 16764, 64315, 76742, 14022]
+481  	LOAD_CONST          	77    	832832835                     
+484  	LOAD_CONST          	78    	-924053193                    
+487  	LOAD_CONST          	79    	-307134635                    
+490  	LOAD_CONST          	80    	-527578092                    
+493  	LOAD_CONST          	81    	998625960                     
+2322 	LOAD_CONST          	82    	-715102211                    
+2325 	LOAD_CONST          	83    	3572182                       
+2328 	LOAD_CONST          	84    	-963194083                    
+1697 	LOAD_CONST          	85    	-475718185                    
+1125 	LOAD_CONST          	86    	-361574731                    
+1128 	LOAD_CONST          	87    	-678171563                    
+1131 	LOAD_CONST          	88    	107566155                     
+1373 	LOAD_CONST          	89    	608670527                     
+1376 	LOAD_CONST          	90    	254218946                     
+1379 	LOAD_CONST          	91    	-81206308                     
+1382 	LOAD_CONST          	92    	-284228457                    
+1249 	LOAD_CONST          	93    	373369420                     
+1252 	LOAD_CONST          	94    	659110852                     
+1255 	LOAD_CONST          	95    	165298084                     
+1258 	LOAD_CONST          	96    	-389004184                    
+1261 	LOAD_CONST          	97    	893094421                     
+1678 	LOAD_CONST          	98    	-868933443                    
+1681 	LOAD_CONST          	99    	44838205                      
+2477 	LOAD_CONST          	100   	-98551062                     
+2480 	LOAD_CONST          	101   	-59800920                     
+2483 	LOAD_CONST          	102   	-575871298                    
+60   	LOAD_CONST          	103   	-748337118                    
+63   	LOAD_CONST          	104   	696390966                     
+66   	LOAD_CONST          	105   	427210246                     
+69   	LOAD_CONST          	106   	-266607884                    
+72   	LOAD_CONST          	107   	-555200820                    
+168  	LOAD_CONST          	108   	-594235119                    
+171  	LOAD_CONST          	109   	-233255094                    
+174  	LOAD_CONST          	110   	229291711                     
+177  	LOAD_CONST          	111   	711922719                     
+180  	LOAD_CONST          	112   	14476464                      
+3071 	LOAD_CONST          	113   	-783373820                    
+3074 	LOAD_CONST          	114   	892608580                     
+3077 	BUILD_LIST          	38    	                              
+2387 	STORE_FAST          	3     	c = [832832835, -924053193, -307134635, -527578092, 998625960, -715102211, 3572182, -963194083, -475718185, -361574731, -678171563, 107566155, 608670527, 254218946, -81206308, -284228457, 373369420, 659110852, 165298084, -389004184, 893094421, -868933443, 44838205, -98551062, -59800920, -575871298, -748337118, 696390966, 427210246, -266607884, -555200820, -594235119, -233255094, 229291711, 711922719, 14476464, -783373820, 892608580]
+2390 	BUILD_LIST          	0     	                              
+942  	STORE_FAST          	4     	d = []                        
+945  	SETUP_LOOP          	15    	                              
+1024 	LOAD_GLOBAL         	0     	range                         
+1027 	LOAD_CONST          	115   	38                            
+1030 	CALL_FUNCTION       	1     	range(38)                     
+2489 	GET_ITER            	      	                              
+2629 	FOR_ITER            	18    	                              
+2771 	STORE_FAST          	5     	i = iter(range(38)).next()    
+2174 	LOAD_FAST           	4     	d                             
+2177 	LOAD_ATTR           	1     	                              
+954  	LOAD_FAST           	1     	a                             
+2052 	LOAD_FAST           	5     	i                             
+2055 	BINARY_SUBSCR       	      	                              
+2056 	LOAD_FAST           	0     	data                          
+1886 	LOAD_FAST           	5     	i                             
+1889 	BINARY_SUBSCR       	      	                              
+1890 	BINARY_MULTIPLY     	      	                              
+1891 	LOAD_FAST           	0     	data                          
+1894 	LOAD_FAST           	5     	i                             
+1209 	BINARY_SUBSCR       	      	                              
+1210 	BINARY_MULTIPLY     	      	                              
+1211 	LOAD_FAST           	2     	b                             
+151  	LOAD_FAST           	5     	i                             
+154  	BINARY_SUBSCR       	      	                              
+155  	LOAD_FAST           	0     	data                          
+3052 	LOAD_FAST           	5     	i                             
+3055 	BINARY_SUBSCR       	      	                              
+1598 	BINARY_MULTIPLY     	      	                              
+1363 	BINARY_ADD          	      	                              
+1364 	LOAD_FAST           	3     	c                             
+1367 	LOAD_FAST           	5     	i                             
+810  	BINARY_SUBSCR       	      	                              
+811  	BINARY_ADD          	      	                              
+812  	CALL_FUNCTION       	1     	d.append(a[i]*data[i]*data[i]+b[i]*data[i]+c[i])
+815  	POP_TOP             	      	                              
+|----------------------
+|->FOR 2629 END
+2613 	POP_BLOCK           	      	                              
+3059 	LOAD_CONST          	116   	973988289                     
+3062 	LOAD_CONST          	117   	-867920193                    
+3065 	LOAD_CONST          	118   	-132362266                    
+1837 	LOAD_CONST          	119   	-172451190                    
+1840 	LOAD_CONST          	120   	1471255182                    
+1843 	LOAD_CONST          	121   	-242282199                    
+2304 	LOAD_CONST          	122   	321870424                     
+2307 	LOAD_CONST          	123   	-897049789                    
+2310 	LOAD_CONST          	124   	-428663209                    
+2313 	LOAD_CONST          	125   	-256350703                    
+2316 	LOAD_CONST          	126   	-613466537                    
+334  	LOAD_CONST          	127   	321254055                     
+337  	LOAD_CONST          	128   	641759727                     
+340  	LOAD_CONST          	129   	344601346                     
+343  	LOAD_CONST          	130   	-40281788                     
+346  	LOAD_CONST          	131   	-217030057                    
+352  	LOAD_CONST          	132   	476060216                     
+355  	LOAD_CONST          	133   	767746297                     
+358  	LOAD_CONST          	134   	503093626                     
+2706 	LOAD_CONST          	135   	-102198850                    
+2709 	LOAD_CONST          	136   	984358207                     
+2712 	LOAD_CONST          	137   	-415480559                    
+2198 	LOAD_CONST          	138   	322813233                     
+2201 	LOAD_CONST          	139   	178032672                     
+930  	LOAD_CONST          	140   	48876640                      
+933  	LOAD_CONST          	141   	-467362638                    
+936  	LOAD_CONST          	142   	-260077296                    
+2343 	LOAD_CONST          	143   	923436845                     
+2346 	LOAD_CONST          	144   	536082660                     
+2349 	LOAD_CONST          	145   	-138702820                    
+2352 	LOAD_CONST          	146   	-210365307                    
+2355 	LOAD_CONST          	147   	-397666023                    
+2571 	LOAD_CONST          	148   	-215329942                    
+2574 	LOAD_CONST          	149   	274852104                     
+2577 	LOAD_CONST          	150   	818217684                     
+2493 	LOAD_CONST          	151   	41479433                      
+2496 	LOAD_CONST          	152   	-632022956                    
+2499 	LOAD_CONST          	153   	1204798830                    
+2502 	BUILD_LIST          	38    	                              
+1577 	STORE_FAST          	6     	e = [973988289, -867920193, -132362266, -172451190, 1471255182, -242282199, 321870424, -897049789, -428663209, -256350703, -613466537, 321254055, 641759727, 344601346, -40281788, -217030057, 476060216, 767746297, 503093626, -102198850, 984358207, -415480559, 322813233, 178032672, 48876640, -467362638, -260077296, 923436845, 536082660, -138702820, -210365307, -397666023, -215329942, 274852104, 818217684, 41479433, -632022956, 1204798830]
+2718 	LOAD_FAST           	4     	d                             
+2721 	LOAD_FAST           	6     	e                             
+2724 	COMPARE_OP          	2     	e == d ?                      
+2727 	POP_JUMP_IF_FALSE   	2739  	                              
+2396 	LOAD_GLOBAL         	2     	p_s                           
+2399 	CALL_FUNCTION       	0     	p_s()                         
+2402 	POP_TOP             	      	                              
+1335 	LOAD_CONST          	0     	None                          
+1338 	RETURN_VALUE        	      	return None                   
+|----------------------
+|->referenced by 2727
+1014 	LOAD_GLOBAL         	3     	p_f                           
+1017 	CALL_FUNCTION       	0     	p_f()                         
+1020 	POP_TOP             	      	                              
+1335 	LOAD_CONST          	0     	None                          
+1338 	RETURN_VALUE        	      	return None                   
+Function count(data) End
+
+
