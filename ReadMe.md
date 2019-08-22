@@ -1,6 +1,6 @@
 Deobfuscating a pyc file by simulating instructions.
 
-**Example**
+**Usage**
 
 ```
 deobf.py [-h] filename
